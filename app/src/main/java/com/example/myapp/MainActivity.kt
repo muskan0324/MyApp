@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyAppTheme {
 //                startActivity(Intent(applicationContext,CalculatorActivity::class.java))
-                startActivity(Intent(applicationContext, SignInSignUP::class.java))
+                startActivity(Intent(applicationContext, APIActivity::class.java))
 //                MyApp(this)
             }
         }
