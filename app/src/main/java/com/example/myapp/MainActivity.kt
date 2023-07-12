@@ -32,12 +32,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyAppTheme {
-                startActivity(Intent(applicationContext,CalcActivity::class.java))
+//                startActivity(Intent(applicationContext,CalculatorActivity::class.java))
+                startActivity(Intent(applicationContext, SignInSignUP::class.java))
 //                MyApp(this)
-                // A surface container using the 'background' color from the theme
-//                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-//                    Greeting("Android")
-//                }
             }
         }
     }

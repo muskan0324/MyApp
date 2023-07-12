@@ -1,4 +1,13 @@
 <resources>
-    <string name="app_name">MyApp</string>
+    <string name="app_name">Android External Training</string>
     <string name="title_activity_calc">CalcActivity</string>
+    <string name="title_activity_insta">InstaActivity</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_activity_scaffold">ScaffoldActivity</string>
+    <string name="title_activity_day2">Day2Activity</string>
+    <string name="title_activity_day3">Day3Activity</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_room_sql_db">RoomSqlDbActivity</string>
+    <string name="title_activity_room_db">RoomDbActivity</string>
+    <string name="title_activity_sign_in_sign_up">SignInSignUP</string>
 </resources>
