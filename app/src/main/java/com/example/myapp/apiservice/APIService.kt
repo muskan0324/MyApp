@@ -1,4 +1,4 @@
-package com.example.myapp
+package com.example.myapp.apiservice
 
 import com.example.myapp.models.response.MemesResponse
 import retrofit2.Retrofit
@@ -13,7 +13,7 @@ interface APIService {
 
     companion object {
         var apiService: APIService? = null
-        fun getInstance() : APIService{
+        fun getInstance() : APIService {
             if (apiService == null) {
                 apiService = Retrofit.Builder()
                     .baseUrl("https://api.memegen.link/")

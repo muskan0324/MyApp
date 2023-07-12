@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyAppTheme {
 //                startActivity(Intent(applicationContext,CalculatorActivity::class.java))
-                startActivity(Intent(applicationContext, APIActivity::class.java))
+                startActivity(Intent(applicationContext, WeatherAPIActivity::class.java))
 //                MyApp(this)
             }
         }

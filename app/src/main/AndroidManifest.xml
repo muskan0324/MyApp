@@ -17,6 +17,11 @@
         android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
         <activity
+            android:name=".WeatherAPIActivity"
+            android:exported="false"
+            android:label="@string/title_activity_weather_apiactivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
             android:name=".APIActivity"
             android:exported="false"
             android:label="@string/title_activity_apiactivity"
