@@ -1,19 +1,24 @@
 package com.example.myapp
 
 import android.annotation.SuppressLint
+import android.icu.number.Scale
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+//import androidx.compose.foundation.layout.ColumnScopeInstance.weight
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -37,6 +42,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberImagePainter
+import coil.transform.CircleCropTransformation
 import com.example.myapp.apiservice.APIService
 import com.example.myapp.apiservice.WeatherAPIService
 import com.example.myapp.models.response.Current
@@ -44,6 +51,7 @@ import com.example.myapp.models.response.Location
 import com.example.myapp.models.response.MemesResponse
 import com.example.myapp.models.response.WeatherResponse
 import com.example.myapp.ui.theme.MyAppTheme
+import com.google.common.math.Quantiles.scale
 import kotlinx.coroutines.launch
 
 class WeatherAPIActivity : ComponentActivity() {
@@ -74,6 +82,9 @@ fun Weather(){
         mutableStateOf(R.drawable.back)
     }
     val backgroundImage = painterResource(imageId)
+    var icon:String? by remember {
+        mutableStateOf("")
+    }
 
 
     Box(
@@ -93,6 +104,10 @@ fun Weather(){
                     try {
                         weatherResponse= apiService.getWeather(location=location)
                         weatherCondition= weatherResponse.current!!.condition?.text.toString()
+                        var condition= weatherResponse.current!!.condition
+                        icon= condition?.icon
+
+//                        Image(painter = )
 //                        if(weatherCondition.contains("rain")) imageId=R.drawable.rainy
 //                        if(weatherCondition.contains("cloudy")) imageId=R.drawable.cloudy
                     }
@@ -106,7 +121,17 @@ fun Weather(){
                 Text(weatherCondition , fontSize = 30.sp, fontWeight = FontWeight.Bold,color=Color.Black)
                 getWeather=false
             }
+            if(!icon.isNullOrBlank()) {
+                Icon(
+                    painter = rememberImagePainter( data= "https:$icon",
+                        builder = { scale(coil.size.Scale.FILL)
+//                            placeholder(R.drawable.background)
+                        }),
+                        contentDescription = "weather",
+                    modifier=Modifier.fillMaxHeight().weight(0.3f).size(100.dp)
 
+                )
+            }
         }
     }
 
