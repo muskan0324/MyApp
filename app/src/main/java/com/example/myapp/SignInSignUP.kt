@@ -40,9 +40,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.myapp.jetpackroomdb.dao.AccountDAO
 import com.example.myapp.jetpackroomdb.dbInstance.AccountDatabase
 import com.example.myapp.jetpackroomdb.entity.AccountEntity
@@ -70,14 +72,23 @@ class SignInSignUP : ComponentActivity() {
 fun MainApp(scope: CoroutineScope, dbInstance: AccountDAO) {
     var navController= rememberNavController()
     NavHost(navController = navController,
-        startDestination = "sign-in"){
+        startDestination = "home/${null}"){
         composable(route="sign-in"){
             SignInScreen(scope,dbInstance,navController)
         }
         composable(route="sign-up"){
             SignUpScreen(scope,dbInstance,navController)
         }
-        composable(route="home/{mobileNo}"){
+        composable(route="home/{mobileNo}"
+        , arguments = listOf(
+                navArgument("mobileNo"){
+                    type= NavType.StringType
+                    defaultValue="9056700176"
+                    nullable=true
+                }
+        )
+        ){
+
                 navBackStackEntry->
                      var mobileNo=navBackStackEntry.arguments?.getString("mobileNo")
                     if(mobileNo!=null)

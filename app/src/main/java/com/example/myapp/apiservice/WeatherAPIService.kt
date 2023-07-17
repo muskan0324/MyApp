@@ -1,6 +1,5 @@
 package com.example.myapp.apiservice
 
-import com.example.myapp.models.response.MemesResponse
 import com.example.myapp.models.response.WeatherResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

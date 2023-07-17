@@ -13,4 +13,7 @@
     <string name="title_activity_apiactivity">APIActivity</string>
     <string name="title_activity_weather_apiactivity">WeatherAPIActivity</string>
     <string name="title_activity_work_manager">WorkManagerActivity</string>
+    <string name="title_activity_train_apiactivity">TrainAPIActivity</string>
+    <string name="title_activity_fire_base">FireBaseActivity</string>
+    <string name="title_activity_you_tube">YouTubeActivity</string>
 </resources>

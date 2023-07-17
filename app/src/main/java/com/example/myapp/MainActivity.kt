@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyAppTheme {
 //                startActivity(Intent(applicationContext,CalculatorActivity::class.java))
-                startActivity(Intent(applicationContext, WorkManagerActivity::class.java))
+                startActivity(Intent(applicationContext, SpotifyActivity::class.java))
 //                MyApp(this)
             }
         }
